@@ -68,11 +68,12 @@ def converteDestino(value, base):
       list.append(quociente)
       break
   list.reverse()
-  i = 0
-  for x in list:
-    if list[i] > 9:
-      list[i] = chr(list[i]+55)
-    i += 1
+  if base == 16:
+    i = 0
+    for x in list:
+      if list[i] > 9:
+        list[i] = chr(list[i]+55)
+      i += 1
   return str(list).strip("[]").replace(",","").replace(" ","").replace("'","")
 
 def converteOrigem(value, base):
@@ -114,7 +115,7 @@ def converte(value, sysOriginal, sysDestino):
     case 1:
       resposta = converteDestino(valueInterno, 8)
     case 2:
-      resposta = converteDestino(valueInterno, 9)
+      resposta = valueInterno
     case 3: 
       resposta = converteDestino(valueInterno, 16)
     case 4:
